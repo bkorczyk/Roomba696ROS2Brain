@@ -1,0 +1,72 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+WiFiServer server(8888);
+WiFiClient client;
+
+#define BRC_PIN 4
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+  
+  Serial.begin(115200);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+  
+  WiFi.begin(SECRET_SSID, SECRET_PASS);
+  while (WiFi.status() != WL_CONNECTED) delay(500);
+  
+  server.begin();
+  Serial.println(">>> V16 SNIPER BRIDGE READY. Czekam na ROS 2...");
+}
+
+void loop() {
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    
+    Serial.println(">>> ROS 2 PODŁĄCZONY. Wykonuje sekwencje snajperska...");
+
+    // 1. Budzimy Roombę twardym resetem BRC
+    digitalWrite(BRC_PIN, LOW);
+    delay(500);
+    digitalWrite(BRC_PIN, HIGH);
+    
+    // 2. KLUCZOWY MOMENT: Czekamy 2500ms. 
+    // W tym czasie Roomba wypluwa swoje logi tekstowe (13 H 7 0 8...).
+    // My celowo je ignorujemy.
+    delay(2500);
+
+    // 3. Roomba skończyła gadać. Czyścimy port do zera.
+    while(Serial2.available()) Serial2.read();
+    
+    // 4. Sami wprowadzamy ją w tryb Safe, zanim driver ROS2 wyśle swoje zapytania
+    Serial2.write(128); delay(50);
+    Serial2.write(131); delay(100);
+    
+    // Jeszcze jedno szybkie czyszczenie ewentualnych potwierdzeń
+    while(Serial2.available()) Serial2.read();
+
+    Serial.println(">>> PORT CZYSTY. Przekazuje kontrole do create_driver.");
+  }
+
+  // STANDARDOWY MOST DWUKIERUNKOWY (Jak w kodzie pierwotnym)
+  if (client && client.connected()) {
+    
+    // Z ROS 2 do Roomby
+    if (client.available()) {
+      while (client.available()) Serial2.write(client.read());
+    }
+    
+    // Z Roomby do ROS 2
+    if (Serial2.available()) {
+      size_t len = Serial2.available();
+      uint8_t buf[len];
+      Serial2.readBytes(buf, len);
+      client.write(buf, len);
+    }
+  }
+}

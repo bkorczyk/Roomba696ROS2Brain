@@ -1,0 +1,120 @@
+#include <Arduino.h>
+#include <WiFi.h>
+
+const char* ssid = "KorNet2";
+const char* password = "Detergent1$";
+
+WiFiServer logServer(8889);
+WiFiClient logClient;
+
+// --- PINOLOGIA ---
+#define BRC_PIN 4   // Podłącz do pinu 5 (BRC) w gnieździe Roomby
+#define LED_PIN 2   // Wbudowana dioda ESP32
+
+// POŁĄCZENIE SERIAL2 (Pamiętaj o skrzyżowaniu TX/RX!):
+// ESP32 Pin 16 (RX) ---> Roomba Pin 4 (TX)
+// ESP32 Pin 17 (TX) ---> Roomba Pin 3 (RX)
+// ESP32 GND         ---> Roomba Pin 6 lub 7 (GND) - BARDZO WAŻNE!
+
+void logToNet(String msg) {
+  String out = "[" + String(millis()) + "] " + msg;
+  Serial.println(out); // Logujemy również na kabel USB (dla pewności)
+  if (logClient && logClient.connected()) {
+    logClient.println(out);
+  }
+}
+
+void sendCmd(uint8_t* cmd, int len) {
+  Serial2.write(cmd, len);
+}
+
+void wakeUpRoomba() {
+  logToNet("Wybudzanie Roomby (Impuls BRC)...");
+  digitalWrite(BRC_PIN, HIGH);
+  delay(100);
+  digitalWrite(BRC_PIN, LOW); // Ściągamy pin do masy na pół sekundy
+  delay(500);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(2000); // Dajemy procesorowi Roomby czas na uruchomienie
+}
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH); // Blokujemy przypadkowe wejście w tryby serwisowe
+
+  Serial.begin(115200);       // Port do debugowania przez kabel USB
+  Serial2.begin(115200, SERIAL_8N1, 16, 17); // Port komunikacji z Roombą
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+    Serial.print(".");
+  }
+
+  logServer.begin();
+  logToNet("DIAGNOSTA GOTOWY. IP: " + WiFi.localIP().toString());
+}
+
+// Zmienna do odmierzania czasu (zapobiega resetom Watchdoga)
+unsigned long lastTest = 0;
+
+void loop() {
+  // 1. Obsługa klienta Netcat
+  if (!logClient || !logClient.connected()) {
+    logClient = logServer.available();
+  }
+
+  // 2. Czytanie ewentualnych logów wysyłanych przez Roombę
+  // Jeśli Roomba coś wysyła, wyrzuci to do Serial Monitora (przez kabel USB)
+  while (Serial2.available()) {
+    byte b = Serial2.read();
+    Serial.printf("Roomba mowi: 0x%02X\n", b);
+  }
+
+  // 3. Maszyna testowa - odpala się co 30 sekund
+  if (millis() - lastTest > 30000 || lastTest == 0) {
+    lastTest = millis();
+    
+    logToNet("--- START DIAGNOSTYKI ---");
+    
+    wakeUpRoomba();
+
+    // KROK 1: Czyszczenie strumienia i start
+    logToNet("Krok 1: Stop Stream (150) i Start (128)");
+    uint8_t stopStream[] = {150, 0}; 
+    sendCmd(stopStream, 2); // Wymuszamy zatrzymanie plucia "zerami i jedynkami"
+    delay(100);
+    
+    uint8_t start[] = {128}; 
+    sendCmd(start, 1);
+    delay(100);
+
+    // KROK 2: Tryb FULL
+    logToNet("Krok 2: Tryb FULL (132)");
+    uint8_t full[] = {132}; 
+    sendCmd(full, 1);
+    delay(500);
+
+    // KROK 3: Beep
+    logToNet("Krok 3: Beep!");
+    uint8_t beep[] = {140, 3, 1, 64, 16, 141, 3};
+    sendCmd(beep, 7);
+    delay(1000);
+
+    // KROK 4: Jazda - ustawiona na BARDZO WOLNO (40mm/s)
+    // Jeśli zasilanie jest problemem, wolny start zminimalizuje ryzyko resetu
+    logToNet("Krok 4: Do przodu (40mm/s)");
+    uint8_t move[] = {137, 0, 40, 128, 0}; 
+    sendCmd(move, 5);
+    delay(2000);
+
+    // KROK 5: Zatrzymanie
+    logToNet("Krok 5: Stop silnikow");
+    uint8_t stop[] = {137, 0, 0, 0, 0};
+    sendCmd(stop, 5);
+    
+    logToNet("--- KONIEC SEKWENCJI. Czekam 30s... ---");
+  }
+}

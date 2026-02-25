@@ -1,0 +1,104 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer logServer(8889);
+WiFiClient logClient;
+
+#define BRC_PIN 4
+#define LED_PIN 2
+
+void logToNet(String msg) {
+  String out = "[" + String(millis()) + "] " + msg;
+  Serial.println(out);
+  if (logClient && logClient.connected()) logClient.println(out);
+}
+
+// Funkcja wysyłająca surowe komendy ROI
+void sendCmd(uint8_t* cmd, int len) {
+  Serial2.write(cmd, len);
+}
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+
+  Serial.begin(115200);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+  }
+
+  logServer.begin();
+  logToNet("TESTER GOTOWY. Polacz sie przez: nc " + WiFi.localIP().toString() + " 8889");
+  logToNet("Sekwencja testowa ruszy za 10 sekund...");
+  delay(10000);
+}
+
+void loop() {
+  if (!logClient || !logClient.connected()) logClient = logServer.available();
+
+  logToNet("--- START SEKWENCJI TESTOWEJ ---");
+
+  // 1. Start i Tryb Safe
+  logToNet("Krok 1: Budzenie i tryb SAFE");
+  uint8_t start[] = {128, 131}; 
+  sendCmd(start, 2);
+  delay(1000);
+
+  // 2. Beep (potwierdzenie komunikacji)
+  logToNet("Krok 2: Beep!");
+  uint8_t beep[] = {140, 3, 1, 64, 16, 141, 3};
+  sendCmd(beep, 7);
+  delay(2000);
+
+  // 3. Jazda do przodu (100mm/s)
+  logToNet("Krok 3: Do przodu");
+  uint8_t fwd[] = {137, 0, 100, 128, 0}; // 100mm/s, Straight (32768)
+  sendCmd(fwd, 5);
+  delay(1000);
+
+  // 4. Stop
+  logToNet("Krok 4: Stop");
+  uint8_t stop[] = {137, 0, 0, 0, 0};
+  sendCmd(stop, 5);
+  delay(1000);
+
+  // 5. Do tylu
+  logToNet("Krok 5: Do tylu");
+  uint8_t bck[] = {137, 255, 156, 128, 0}; // -100mm/s (65436), Straight
+  sendCmd(bck, 5);
+  delay(1000);
+
+  // 6. Obrot w lewo (w miejscu)
+  logToNet("Krok 6: Obrot w lewo");
+  uint8_t left[] = {137, 0, 100, 0, 1}; // 100mm/s, Radius 1
+  sendCmd(left, 5);
+  delay(1000);
+
+  // 7. Obrot w prawo (w miejscu)
+  logToNet("Krok 7: Obrot w prawo");
+  uint8_t right[] = {137, 0, 100, 255, 255}; // 100mm/s, Radius -1
+  sendCmd(right, 5);
+  delay(1000);
+
+  // 8. Zatrzymanie
+  logToNet("Krok 8: Stop");
+  sendCmd(stop, 5);
+  delay(1000);
+
+  // 9. Powrot do stacji (Dock)
+  //logToNet("Krok 9: Szukanie stacji dokujacej...");
+  //uint8_t dock[] = {143}; 
+  //sendCmd(dock, 1);
+
+  logToNet("--- KONIEC TESTU. Zasypiam na 60s ---");
+  delay(60000);
+}

@@ -1,0 +1,129 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer server(8888);
+WiFiServer logServer(8889);
+WiFiClient client;
+WiFiClient logClient;
+
+#define BRC_PIN 4
+
+// =====================================================
+// LOG
+// =====================================================
+void logMsg(const String &msg) {
+  Serial.println(msg);
+  if (logClient && logClient.connected()) {
+    logClient.println(msg);
+  }
+}
+
+// =====================================================
+// HARD RESET ROOMBY (tylko przy starcie ESP32)
+// =====================================================
+void resetRoomba() {
+  logMsg(">>> HARD RESET ROOMBA (BRC)...");
+  digitalWrite(BRC_PIN, LOW);
+  delay(1000);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(1500);   // daj jej czas na boot
+}
+
+// =====================================================
+// WYŁĄCZ EWENTUALNY STREAM DIAGNOSTYCZNY
+// =====================================================
+void killStream() {
+  logMsg(">>> DISABLING POSSIBLE STREAM MODE...");
+
+  for (int i = 0; i < 3; i++) {
+    Serial2.write(0x80);  // START
+    delay(50);
+    Serial2.write(0x96);  // STREAM (150)
+    Serial2.write(0x00);  // disable
+    delay(50);
+    Serial2.write(0xAD);  // STOP
+    delay(200);
+  }
+
+  logMsg(">>> STREAM OFF DONE.");
+}
+
+// =====================================================
+// SETUP
+// =====================================================
+void setup() {
+
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+
+  Serial.begin(115200);
+  delay(1000);
+
+  // UART do Roomby
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+  Serial2.setTimeout(10);
+
+  // RESET tylko raz przy starcie ESP32
+  resetRoomba();
+  killStream();
+
+  // WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+
+  server.begin();
+  logServer.begin();
+  MDNS.begin("roomba");
+
+  logMsg(">>> ROOMBA BRIDGE READY");
+  logMsg(">>> TCP PORT: 8888");
+  logMsg(">>> LOG PORT: 8889");
+}
+
+// =====================================================
+// LOOP – CZYSTY MOST
+// =====================================================
+void loop() {
+
+  // Nowe połączenie TCP
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    logMsg(">>> ROS2 CONNECTED");
+  }
+
+  // Nowe połączenie logów
+  if (!logClient || !logClient.connected()) {
+    logClient = logServer.available();
+  }
+
+  // =====================================================
+  // ROS2 → ROOMBA
+  // =====================================================
+  if (client && client.connected()) {
+    while (client.available()) {
+      uint8_t b = client.read();
+      Serial2.write(b);
+    }
+  }
+
+  // =====================================================
+  // ROOMBA → ROS2
+  // =====================================================
+  while (Serial2.available()) {
+    uint8_t b = Serial2.read();
+
+    if (client && client.connected()) {
+      client.write(b);
+    }
+  }
+}

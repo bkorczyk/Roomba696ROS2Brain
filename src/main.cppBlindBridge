@@ -1,0 +1,44 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+WiFiServer server(8888);
+WiFiClient client;
+
+#define BRC_PIN 4
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+  Serial.begin(115200);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+  
+  WiFi.begin(SECRET_SSID, SECRET_PASS);
+  while (WiFi.status() != WL_CONNECTED) delay(500);
+  
+  server.begin();
+  Serial.println("BLIND BRIDGE READY na porcie 8888");
+}
+
+void loop() {
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    
+    // Budzenie tak jak w testerze
+    digitalWrite(BRC_PIN, LOW); delay(500); digitalWrite(BRC_PIN, HIGH);
+    delay(100);
+    Serial2.write(128); delay(50);
+    Serial2.write(131); delay(100);
+  }
+
+  // Przekazujemy tylko: ROS 2 -> ROOMBA
+  if (client && client.connected() && client.available()) {
+    while (client.available()) Serial2.write(client.read());
+  }
+
+  // Ignorujemy całkowicie to, co Roomba wysyła (żadnych logów)
+  while(Serial2.available()) Serial2.read();
+}
