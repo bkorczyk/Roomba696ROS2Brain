@@ -1,0 +1,115 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer server(8888);
+WiFiServer logServer(8889);
+WiFiClient client;
+WiFiClient logClient;
+
+#define BRC_PIN 4
+
+void logRaw(String msg) {
+  if (logClient && logClient.connected()) logClient.println(msg);
+  Serial.println(msg);
+}
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  // Pełny twardy restart Roomby (wakeup) przy uruchomieniu ESP32
+  digitalWrite(BRC_PIN, LOW);
+  delay(500);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(500);
+
+  Serial.begin(115200);
+  Serial2.setRxBufferSize(2048);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+  
+  server.begin();
+  logServer.begin();
+  logRaw(">>> DIAGNOSTIC BRIDGE V2 READY. Czekam na nc... <<<");
+}
+
+void loop() {
+  // 1. Utrzymanie logów
+  if (!logClient || !logClient.connected()) logClient = logServer.available();
+
+  /* 2. Obsługa klienta ROS2
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    logRaw("\n=========================================");
+    logRaw("[SYSTEM] NOWE POLACZENIE TCP Z ROS2");
+    logRaw("=========================================");
+  }*/
+
+// 2. Obsługa klienta ROS2
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    
+    // Wygaszamy Roombę impulsem BRC (Device Detect) żeby na pewno nie spała
+    digitalWrite(BRC_PIN, LOW);
+    delay(200);
+    digitalWrite(BRC_PIN, HIGH);
+    delay(100);
+
+    // Czyścimy bufor UART ze starych śmieci, zanim ROS2 zacznie czytać
+    while(Serial2.available()) Serial2.read();
+
+    logRaw("\n=========================================");
+    logRaw("[SYSTEM] NOWE POLACZENIE TCP Z ROS2 (Bufory czyste)");
+    logRaw("=========================================");
+  }
+
+  // 3. ODBIÓR Z ROS2 (TCP) -> WYSYŁKA DO ROOMBY (UART)
+  if (client && client.connected() && client.available()) {
+    size_t len = client.available();
+    if (len > 256) len = 256; // Zabezpieczenie bufora
+    uint8_t buf[256];
+    client.read(buf, len);
+
+    String hexLog = "[ROS2 -> ROOMBA] Bajtow: " + String(len) + " | Dane HEX: ";
+    for (size_t i = 0; i < len; i++) {
+      char hex[4];
+      sprintf(hex, "%02X ", buf[i]);
+      hexLog += hex;
+    }
+    logRaw(hexLog);
+    
+    Serial2.write(buf, len); // Przekazanie do Roomby
+  }
+
+  // 4. ODBIÓR Z ROOMBY (UART) -> WYSYŁKA DO ROS2 (TCP)
+  if (Serial2.available()) {
+    size_t len = Serial2.available();
+    if (len > 256) len = 256;
+    uint8_t buf[256];
+    Serial2.readBytes(buf, len);
+
+    // Aby uniknąć spamu logów (Roomba ciągle wysyła dane z czujników), 
+    // zakomentuj poniższe 6 linijek, jeśli terminal będzie zbyt nieczytelny.
+    String hexLog = "[ROOMBA -> ROS2] Bajtow: " + String(len) + " | Dane HEX: ";
+    for (size_t i = 0; i < len; i++) {
+      char hex[4];
+      sprintf(hex, "%02X ", buf[i]);
+      hexLog += hex;
+    }
+    logRaw(hexLog); 
+
+    if (client && client.connected()) {
+      client.write(buf, len);
+    }
+  }
+}

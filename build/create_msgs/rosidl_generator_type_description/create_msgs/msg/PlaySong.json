@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "create_msgs/msg/PlaySong",
+      "fields": [
+        {
+          "name": "song",
+          "type": {
+            "type_id": 3,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "create_msgs/msg/PlaySong",
+      "hash_string": "RIHS01_22df6118234c4d0f47ffaaec83fbaa557cb52475c0f31eea3123ae01f46237f5"
+    }
+  ]
+}

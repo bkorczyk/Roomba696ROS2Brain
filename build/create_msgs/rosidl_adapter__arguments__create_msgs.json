@@ -1,0 +1,12 @@
+{
+  "package_name": "create_msgs",
+  "non_idl_tuples": [
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/Bumper.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/ChargingState.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/DefineSong.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/Mode.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/PlaySong.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/MotorSetpoint.msg",
+    "/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs:msg/Cliff.msg"
+  ]
+}

@@ -1,0 +1,97 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer server(8888);
+WiFiServer logServer(8889);
+WiFiClient client;
+WiFiClient logClient;
+
+#define BRC_PIN 4
+
+void logRaw(String msg) {
+  if (logClient && logClient.connected()) logClient.println(msg);
+  Serial.println(msg);
+}
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(500);
+
+  Serial.begin(115200);
+  Serial2.setRxBufferSize(2048);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+
+  server.begin();
+  logServer.begin();
+}
+
+void loop() {
+  if (!logClient || !logClient.connected()) logClient = logServer.available();
+
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    while(Serial2.available()) Serial2.read(); // Czyszczenie starych śmieci
+    logRaw("\n=========================================");
+    logRaw("[DIAGNOSTYKA] NOWE POLACZENIE Z ROS2");
+    logRaw("=========================================");
+  }
+
+  // 1. ROS2 -> ROOMBA (Przekazujemy komendy jazdy)
+  if (client && client.connected() && client.available()) {
+    size_t len = client.available();
+    uint8_t buf[256];
+    if (len > 256) len = 256;
+    client.read(buf, len);
+    
+    String hexLog = "[ROS2->ROOMBA] (" + String(len) + "b): ";
+    for (size_t i = 0; i < len; i++) {
+      char hex[4]; sprintf(hex, "%02X ", buf[i]); hexLog += hex;
+    }
+    logRaw(hexLog);
+    
+    Serial2.write(buf, len);
+  }
+
+  // 2. ROOMBA -> ROS2 (Analiza i łączenie pakietów)
+  if (Serial2.available()) {
+    // KLUCZOWY MOMENT: Zamiast wysyłać od razu, czekamy aż Roomba skończy "zdanie".
+    // Jeśli przez 5 milisekund nie przyjdzie żaden nowy bajt, uznajemy pakiet za kompletny.
+    uint32_t lastByteTime = millis();
+    while (millis() - lastByteTime < 5) {
+      if (Serial2.available() > 0) {
+        lastByteTime = millis(); // Resetujemy stoper, bo wpadł nowy bajt
+      }
+      if (Serial2.available() >= 1024) break; // Zabezpieczenie przed przepełnieniem
+    }
+
+    // Teraz czytamy cały, sklejony pakiet
+    size_t len = Serial2.available();
+    uint8_t buf[len];
+    Serial2.readBytes(buf, len);
+
+    // Wysyłamy do diagnostyki (tylko podgląd pierwszych 20 bajtów, żeby nie zalać ekranu)
+    String hexLog = "[ROOMBA->ROS2] Zespolony pakiet (" + String(len) + "b): ";
+    size_t printLen = (len > 20) ? 20 : len;
+    for (size_t i = 0; i < printLen; i++) {
+      char hex[4]; sprintf(hex, "%02X ", buf[i]); hexLog += hex;
+    }
+    if (len > 20) hexLog += "...";
+    logRaw(hexLog);
+
+    // Wysyłamy pełny, nierozerwany pakiet przez WiFi do ROS2
+    if (client && client.connected()) {
+      client.write(buf, len);
+    }
+  }
+}

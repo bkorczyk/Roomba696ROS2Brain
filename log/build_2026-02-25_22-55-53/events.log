@@ -1,0 +1,517 @@
+[0.000000] (-) TimerEvent: {}
+[0.000120] (-) JobUnselected: {'identifier': 'create_bringup'}
+[0.000171] (-) JobUnselected: {'identifier': 'create_description'}
+[0.000194] (-) JobUnselected: {'identifier': 'create_driver'}
+[0.000213] (-) JobUnselected: {'identifier': 'create_robot'}
+[0.000233] (create_msgs) JobQueued: {'identifier': 'create_msgs', 'dependencies': OrderedDict()}
+[0.000254] (create_msgs) JobStarted: {'identifier': 'create_msgs'}
+[0.006248] (create_msgs) JobProgress: {'identifier': 'create_msgs', 'progress': 'cmake'}
+[0.006761] (create_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/bartek/VSCodeWs/Roomba696ROS2Brain/src/create_robot/create_msgs', '-DCMAKE_INSTALL_PREFIX=/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs'], 'cwd': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '', 'USER': 'bartek', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/rolling/opt/gz_math_vendor/lib:/opt/ros/rolling/opt/gz_utils_vendor/lib:/opt/ros/rolling/opt/rviz_ogre_vendor/lib:/opt/ros/rolling/lib/x86_64-linux-gnu:/opt/ros/rolling/opt/gz_cmake_vendor/lib:/opt/ros/rolling/lib', 'HOME': '/home/bartek', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/src', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/bartek/.nvm/versions/node/v22.14.0/bin', 'NVM_INC': '/home/bartek/.nvm/versions/node/v22.14.0/include/node', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2175', 'SYSTEMD_EXEC_PID': '3009', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', '_CONDA_ROOT': '/home/bartek/miniconda3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '8210', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'NVM_DIR': '/home/bartek/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'rolling', 'LOGNAME': 'bartek', 'JOURNAL_STREAM': '9:23125', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'bartek', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', '_CE_CONDA': '', 'WINDOWPATH': '2', 'PATH': '/opt/ros/rolling/bin:/home/bartek/miniconda3/condabin:/home/bartek/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/bkomp:@/tmp/.ICE-unix/2716,unix/bkomp:/tmp/.ICE-unix/2716', 'INVOCATION_ID': 'dd07ddc2b75e477eaa49f6453bd2ed6c', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/rolling', 'CONDA_PYTHON_EXE': '/home/bartek/miniconda3/bin/python', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:1e5b0cc7-4582-4feb-88cd-d5c0ceb03578', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', '_CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/opt/ros/rolling/opt/gz_math_vendor/lib/python:/opt/ros/rolling/lib/python3.12/site-packages', 'CONDA_PREFIX': '', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/rolling/opt/gz_math_vendor:/opt/ros/rolling/opt/gz_utils_vendor:/opt/ros/rolling/opt/gz_cmake_vendor:/opt/ros/rolling'}), 'shell': False}
+[0.092590] (create_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.099522] (-) TimerEvent: {}
+[0.165199] (create_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.179416] (create_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199642] (-) TimerEvent: {}
+[0.248137] (create_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.256016] (create_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.256354] (create_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.256910] (create_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.264405] (create_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299760] (-) TimerEvent: {}
+[0.335941] (create_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.343920] (create_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.344180] (create_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.344572] (create_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.346689] (create_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 2.8.4 (/opt/ros/rolling/share/ament_cmake/cmake)\n'}
+[0.399865] (-) TimerEvent: {}
+[0.458186] (create_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.499970] (-) TimerEvent: {}
+[0.536452] (create_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.8.1 (/opt/ros/rolling/share/rosidl_default_generators/cmake)\n'}
+[0.540226] (create_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.563577] (create_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.588997] (create_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 5.1.2 (/opt/ros/rolling/share/rosidl_adapter/cmake)\n'}
+[0.591292] (create_msgs) StdoutLine: {'line': b'-- Found std_msgs: 5.9.1 (/opt/ros/rolling/share/std_msgs/cmake)\n'}
+[0.600041] (-) TimerEvent: {}
+[0.700223] (-) TimerEvent: {}
+[0.800422] (-) TimerEvent: {}
+[0.900631] (-) TimerEvent: {}
+[1.000834] (-) TimerEvent: {}
+[1.087178] (create_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros_core: 0.15.6 (/opt/ros/rolling/share/ament_cmake_ros_core/cmake)\n'}
+[1.100936] (-) TimerEvent: {}
+[1.201138] (-) TimerEvent: {}
+[1.301309] (-) TimerEvent: {}
+[1.401510] (-) TimerEvent: {}
+[1.442503] (create_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.501618] (-) TimerEvent: {}
+[1.601818] (-) TimerEvent: {}
+[1.701976] (-) TimerEvent: {}
+[1.802171] (-) TimerEvent: {}
+[1.885989] (create_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.902270] (-) TimerEvent: {}
+[2.002462] (-) TimerEvent: {}
+[2.102664] (-) TimerEvent: {}
+[2.202877] (-) TimerEvent: {}
+[2.233814] (create_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[2.293401] (create_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[2.300647] (create_msgs) StdoutLine: {'line': b'-- Configuring done (2.3s)\n'}
+[2.302945] (-) TimerEvent: {}
+[2.341461] (create_msgs) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[2.353842] (create_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs\n'}
+[2.359300] (create_msgs) CommandEnded: {'returncode': 0}
+[2.359542] (create_msgs) JobProgress: {'identifier': 'create_msgs', 'progress': 'build'}
+[2.360201] (create_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', '--', '-j16', '-l16'], 'cwd': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '', 'USER': 'bartek', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/rolling/opt/gz_math_vendor/lib:/opt/ros/rolling/opt/gz_utils_vendor/lib:/opt/ros/rolling/opt/rviz_ogre_vendor/lib:/opt/ros/rolling/lib/x86_64-linux-gnu:/opt/ros/rolling/opt/gz_cmake_vendor/lib:/opt/ros/rolling/lib', 'HOME': '/home/bartek', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/src', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/bartek/.nvm/versions/node/v22.14.0/bin', 'NVM_INC': '/home/bartek/.nvm/versions/node/v22.14.0/include/node', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2175', 'SYSTEMD_EXEC_PID': '3009', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', '_CONDA_ROOT': '/home/bartek/miniconda3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '8210', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'NVM_DIR': '/home/bartek/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'rolling', 'LOGNAME': 'bartek', 'JOURNAL_STREAM': '9:23125', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'bartek', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', '_CE_CONDA': '', 'WINDOWPATH': '2', 'PATH': '/opt/ros/rolling/bin:/home/bartek/miniconda3/condabin:/home/bartek/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/bkomp:@/tmp/.ICE-unix/2716,unix/bkomp:/tmp/.ICE-unix/2716', 'INVOCATION_ID': 'dd07ddc2b75e477eaa49f6453bd2ed6c', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/rolling', 'CONDA_PYTHON_EXE': '/home/bartek/miniconda3/bin/python', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:1e5b0cc7-4582-4feb-88cd-d5c0ceb03578', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', '_CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/opt/ros/rolling/opt/gz_math_vendor/lib/python:/opt/ros/rolling/lib/python3.12/site-packages', 'CONDA_PREFIX': '', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/rolling/opt/gz_math_vendor:/opt/ros/rolling/opt/gz_utils_vendor:/opt/ros/rolling/opt/gz_cmake_vendor:/opt/ros/rolling'}), 'shell': False}
+[2.398870] (create_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[2.399029] (create_msgs) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[2.403019] (-) TimerEvent: {}
+[2.405463] (create_msgs) StdoutLine: {'line': b'[  2%] Built target ament_cmake_python_copy_create_msgs\n'}
+[2.503099] (-) TimerEvent: {}
+[2.603293] (-) TimerEvent: {}
+[2.629751] (create_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[2.630422] (create_msgs) StdoutLine: {'line': b'creating create_msgs.egg-info\n'}
+[2.654961] (create_msgs) StdoutLine: {'line': b'writing create_msgs.egg-info/PKG-INFO\n'}
+[2.655097] (create_msgs) StdoutLine: {'line': b'writing dependency_links to create_msgs.egg-info/dependency_links.txt\n'}
+[2.655227] (create_msgs) StdoutLine: {'line': b'writing top-level names to create_msgs.egg-info/top_level.txt\n'}
+[2.655364] (create_msgs) StdoutLine: {'line': b"writing manifest file 'create_msgs.egg-info/SOURCES.txt'\n"}
+[2.703399] (-) TimerEvent: {}
+[2.711104] (create_msgs) StdoutLine: {'line': b'[  2%] Built target create_msgs__rosidl_generator_type_description\n'}
+[2.718928] (create_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[2.726270] (create_msgs) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[2.731434] (create_msgs) StdoutLine: {'line': b'[  4%] Built target create_msgs__rs\n'}
+[2.733709] (create_msgs) StdoutLine: {'line': b"reading manifest file 'create_msgs.egg-info/SOURCES.txt'\n"}
+[2.734167] (create_msgs) StdoutLine: {'line': b"writing manifest file 'create_msgs.egg-info/SOURCES.txt'\n"}
+[2.758276] (create_msgs) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_create_msgs_egg\n'}
+[2.803507] (-) TimerEvent: {}
+[2.903710] (-) TimerEvent: {}
+[3.003915] (-) TimerEvent: {}
+[3.104114] (-) TimerEvent: {}
+[3.204315] (-) TimerEvent: {}
+[3.234999] (create_msgs) StdoutLine: {'line': b'[  4%] Built target create_msgs__cpp\n'}
+[3.304436] (-) TimerEvent: {}
+[3.318979] (create_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/bumper__description.c.o\x1b[0m\n'}
+[3.319223] (create_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/bumper__functions.c.o\x1b[0m\n'}
+[3.319352] (create_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/charging_state__description.c.o\x1b[0m\n'}
+[3.319485] (create_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/charging_state__functions.c.o\x1b[0m\n'}
+[3.320495] (create_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/define_song__description.c.o\x1b[0m\n'}
+[3.320754] (create_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/define_song__type_support.c.o\x1b[0m\n'}
+[3.320902] (create_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/mode__type_support.c.o\x1b[0m\n'}
+[3.320983] (create_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/mode__description.c.o\x1b[0m\n'}
+[3.321041] (create_msgs) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/mode__functions.c.o\x1b[0m\n'}
+[3.321174] (create_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/define_song__functions.c.o\x1b[0m\n'}
+[3.321425] (create_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/play_song__description.c.o\x1b[0m\n'}
+[3.322286] (create_msgs) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/play_song__functions.c.o\x1b[0m\n'}
+[3.322478] (create_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/charging_state__type_support.c.o\x1b[0m\n'}
+[3.324969] (create_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/bumper__type_support.c.o\x1b[0m\n'}
+[3.325269] (create_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/motor_setpoint__description.c.o\x1b[0m\n'}
+[3.325771] (create_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/play_song__type_support.c.o\x1b[0m\n'}
+[3.361500] (create_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/motor_setpoint__functions.c.o\x1b[0m\n'}
+[3.365712] (create_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/motor_setpoint__type_support.c.o\x1b[0m\n'}
+[3.366242] (create_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/cliff__functions.c.o\x1b[0m\n'}
+[3.367800] (create_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/cliff__description.c.o\x1b[0m\n'}
+[3.371745] (create_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_c.dir/rosidl_generator_c/create_msgs/msg/detail/cliff__type_support.c.o\x1b[0m\n'}
+[3.404557] (-) TimerEvent: {}
+[3.410229] (create_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32m\x1b[1mLinking C shared library libcreate_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[3.440378] (create_msgs) StdoutLine: {'line': b'[ 27%] Built target create_msgs__rosidl_generator_c\n'}
+[3.447786] (create_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.447961] (create_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[3.448031] (create_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.448092] (create_msgs) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[3.448222] (create_msgs) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[3.448312] (create_msgs) StdoutLine: {'line': b'[ 33%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[3.504659] (-) TimerEvent: {}
+[3.604875] (-) TimerEvent: {}
+[3.705063] (-) TimerEvent: {}
+[3.805254] (-) TimerEvent: {}
+[3.822979] (create_msgs) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/define_song__type_support.cpp.o\x1b[0m\n'}
+[3.824318] (create_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/charging_state__type_support.cpp.o\x1b[0m\n'}
+[3.824481] (create_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/bumper__type_support.cpp.o\x1b[0m\n'}
+[3.824641] (create_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/mode__type_support.cpp.o\x1b[0m\n'}
+[3.824744] (create_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/play_song__type_support.cpp.o\x1b[0m\n'}
+[3.824845] (create_msgs) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/motor_setpoint__type_support.cpp.o\x1b[0m\n'}
+[3.824953] (create_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/create_msgs/msg/cliff__type_support.cpp.o\x1b[0m\n'}
+[3.861414] (create_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/define_song__type_support.cpp.o\x1b[0m\n'}
+[3.861620] (create_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/bumper__type_support.cpp.o\x1b[0m\n'}
+[3.862777] (create_msgs) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/charging_state__type_support.cpp.o\x1b[0m\n'}
+[3.862990] (create_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/mode__type_support.cpp.o\x1b[0m\n'}
+[3.884999] (create_msgs) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/play_song__type_support.cpp.o\x1b[0m\n'}
+[3.905345] (-) TimerEvent: {}
+[3.922997] (create_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/motor_setpoint__type_support.cpp.o\x1b[0m\n'}
+[3.926142] (create_msgs) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/create_msgs/msg/cliff__type_support.cpp.o\x1b[0m\n'}
+[3.987460] (create_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32m\x1b[1mLinking CXX shared library libcreate_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[4.000043] (create_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/bumper__type_support.c.o\x1b[0m\n'}
+[4.001668] (create_msgs) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/charging_state__type_support.c.o\x1b[0m\n'}
+[4.002520] (create_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/charging_state__type_support.cpp.o\x1b[0m\n'}
+[4.004767] (create_msgs) StdoutLine: {'line': b'[ 53%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/define_song__type_support.c.o\x1b[0m\n'}
+[4.005417] (-) TimerEvent: {}
+[4.005904] (create_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/bumper__type_support.cpp.o\x1b[0m\n'}
+[4.014245] (create_msgs) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/mode__type_support.c.o\x1b[0m\n'}
+[4.056580] (create_msgs) StdoutLine: {'line': b'[ 55%] Built target create_msgs__rosidl_typesupport_c\n'}
+[4.070034] (create_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/define_song__type_support.cpp.o\x1b[0m\n'}
+[4.071177] (create_msgs) StdoutLine: {'line': b'[ 57%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/play_song__type_support.c.o\x1b[0m\n'}
+[4.078047] (create_msgs) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/motor_setpoint__type_support.c.o\x1b[0m\n'}
+[4.091620] (create_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/create_msgs/msg/detail/cliff__type_support.c.o\x1b[0m\n'}
+[4.105523] (-) TimerEvent: {}
+[4.121997] (create_msgs) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/mode__type_support.cpp.o\x1b[0m\n'}
+[4.153436] (create_msgs) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/play_song__type_support.cpp.o\x1b[0m\n'}
+[4.173320] (create_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/motor_setpoint__type_support.cpp.o\x1b[0m\n'}
+[4.199813] (create_msgs) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking C shared library libcreate_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[4.205618] (-) TimerEvent: {}
+[4.248174] (create_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/create_msgs/msg/detail/cliff__type_support.cpp.o\x1b[0m\n'}
+[4.271163] (create_msgs) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/bumper__type_support_c.cpp.o\x1b[0m\n'}
+[4.278965] (create_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/charging_state__type_support_c.cpp.o\x1b[0m\n'}
+[4.288269] (create_msgs) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/define_song__type_support_c.cpp.o\x1b[0m\n'}
+[4.288761] (create_msgs) StdoutLine: {'line': b'[ 68%] Built target create_msgs__rosidl_typesupport_introspection_c\n'}
+[4.298857] (create_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/play_song__type_support_c.cpp.o\x1b[0m\n'}
+[4.303224] (create_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/mode__type_support_c.cpp.o\x1b[0m\n'}
+[4.305721] (-) TimerEvent: {}
+[4.311325] (create_msgs) StdoutLine: {'line': b'[ 71%] \x1b[32m\x1b[1mLinking CXX shared library libcreate_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[4.312430] (create_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/motor_setpoint__type_support_c.cpp.o\x1b[0m\n'}
+[4.325538] (create_msgs) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/create_msgs/msg/detail/cliff__type_support_c.cpp.o\x1b[0m\n'}
+[4.372044] (create_msgs) StdoutLine: {'line': b'[ 74%] Built target create_msgs__rosidl_typesupport_cpp\n'}
+[4.372350] (create_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/bumper__type_support.cpp.o\x1b[0m\n'}
+[4.382736] (create_msgs) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/charging_state__type_support.cpp.o\x1b[0m\n'}
+[4.405878] (-) TimerEvent: {}
+[4.460914] (create_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/define_song__type_support.cpp.o\x1b[0m\n'}
+[4.488255] (create_msgs) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/mode__type_support.cpp.o\x1b[0m\n'}
+[4.506956] (-) TimerEvent: {}
+[4.599077] (create_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/play_song__type_support.cpp.o\x1b[0m\n'}
+[4.607065] (-) TimerEvent: {}
+[4.636753] (create_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/cliff__type_support.cpp.o\x1b[0m\n'}
+[4.640203] (create_msgs) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/create_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/create_msgs/msg/detail/dds_fastrtps/motor_setpoint__type_support.cpp.o\x1b[0m\n'}
+[4.689999] (create_msgs) StdoutLine: {'line': b'[ 82%] \x1b[32m\x1b[1mLinking CXX shared library libcreate_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[4.710988] (-) TimerEvent: {}
+[4.811346] (-) TimerEvent: {}
+[4.827219] (create_msgs) StdoutLine: {'line': b'[ 82%] Built target create_msgs__rosidl_typesupport_introspection_cpp\n'}
+[4.911460] (-) TimerEvent: {}
+[5.011779] (-) TimerEvent: {}
+[5.112090] (-) TimerEvent: {}
+[5.129250] (create_msgs) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX shared library libcreate_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[5.169299] (create_msgs) StdoutLine: {'line': b'[ 83%] Built target create_msgs__rosidl_typesupport_fastrtps_c\n'}
+[5.212199] (-) TimerEvent: {}
+[5.226761] (create_msgs) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking CXX shared library libcreate_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[5.280358] (create_msgs) StdoutLine: {'line': b'[ 84%] Built target create_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[5.294213] (create_msgs) StdoutLine: {'line': b'[ 84%] Built target create_msgs\n'}
+[5.308961] (create_msgs) StdoutLine: {'line': b'[ 85%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[5.312293] (-) TimerEvent: {}
+[5.412472] (-) TimerEvent: {}
+[5.512674] (-) TimerEvent: {}
+[5.612873] (-) TimerEvent: {}
+[5.713060] (-) TimerEvent: {}
+[5.813254] (-) TimerEvent: {}
+[5.913452] (-) TimerEvent: {}
+[6.013662] (-) TimerEvent: {}
+[6.056081] (create_msgs) StdoutLine: {'line': b'[ 85%] Built target create_msgs__py\n'}
+[6.070320] (create_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_charging_state_s.c.o\x1b[0m\n'}
+[6.070598] (create_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_mode_s.c.o\x1b[0m\n'}
+[6.070765] (create_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_define_song_s.c.o\x1b[0m\n'}
+[6.070930] (create_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_bumper_s.c.o\x1b[0m\n'}
+[6.071061] (create_msgs) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_play_song_s.c.o\x1b[0m\n'}
+[6.071137] (create_msgs) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_motor_setpoint_s.c.o\x1b[0m\n'}
+[6.071244] (create_msgs) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/create_msgs__rosidl_generator_py.dir/rosidl_generator_py/create_msgs/msg/_cliff_s.c.o\x1b[0m\n'}
+[6.113756] (-) TimerEvent: {}
+[6.208388] (create_msgs) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library libcreate_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[6.213849] (-) TimerEvent: {}
+[6.240547] (create_msgs) StdoutLine: {'line': b'[ 93%] Built target create_msgs__rosidl_generator_py\n'}
+[6.254555] (create_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/create_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/create_msgs/_create_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[6.254698] (create_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/create_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/create_msgs/_create_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[6.254762] (create_msgs) StdoutLine: {'line': b'[ 96%] \x1b[32mBuilding C object CMakeFiles/create_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/create_msgs/_create_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[6.313955] (-) TimerEvent: {}
+[6.362136] (create_msgs) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/create_msgs/create_msgs_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[6.378964] (create_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/create_msgs/create_msgs_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[6.394378] (create_msgs) StdoutLine: {'line': b'[ 98%] Built target create_msgs_s__rosidl_typesupport_introspection_c\n'}
+[6.396332] (create_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/create_msgs/create_msgs_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[6.409440] (create_msgs) StdoutLine: {'line': b'[100%] Built target create_msgs_s__rosidl_typesupport_c\n'}
+[6.413976] (-) TimerEvent: {}
+[6.420513] (create_msgs) StdoutLine: {'line': b'[100%] Built target create_msgs_s__rosidl_typesupport_fastrtps_c\n'}
+[6.429536] (create_msgs) CommandEnded: {'returncode': 0}
+[6.430156] (create_msgs) JobProgress: {'identifier': 'create_msgs', 'progress': 'install'}
+[6.436635] (create_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs'], 'cwd': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'CONDA_PROMPT_MODIFIER': '', 'USER': 'bartek', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/rolling/opt/gz_math_vendor/lib:/opt/ros/rolling/opt/gz_utils_vendor/lib:/opt/ros/rolling/opt/rviz_ogre_vendor/lib:/opt/ros/rolling/lib/x86_64-linux-gnu:/opt/ros/rolling/opt/gz_cmake_vendor/lib:/opt/ros/rolling/lib', 'HOME': '/home/bartek', 'CONDA_SHLVL': '0', 'OLDPWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/src', 'DESKTOP_SESSION': 'ubuntu', 'NVM_BIN': '/home/bartek/.nvm/versions/node/v22.14.0/bin', 'NVM_INC': '/home/bartek/.nvm/versions/node/v22.14.0/include/node', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2175', 'SYSTEMD_EXEC_PID': '3009', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', '_CE_M': '', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873', '_CONDA_ROOT': '/home/bartek/miniconda3', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '8210', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'NVM_DIR': '/home/bartek/.nvm', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'rolling', 'LOGNAME': 'bartek', 'JOURNAL_STREAM': '9:23125', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'bartek', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', '_CE_CONDA': '', 'WINDOWPATH': '2', 'PATH': '/opt/ros/rolling/bin:/home/bartek/miniconda3/condabin:/home/bartek/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/bkomp:@/tmp/.ICE-unix/2716,unix/bkomp:/tmp/.ICE-unix/2716', 'INVOCATION_ID': 'dd07ddc2b75e477eaa49f6453bd2ed6c', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/opt/ros/rolling', 'CONDA_PYTHON_EXE': '/home/bartek/miniconda3/bin/python', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:1e5b0cc7-4582-4feb-88cd-d5c0ceb03578', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'CONDA_DEFAULT_ENV': '', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', '_CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'CONDA_EXE': '/home/bartek/miniconda3/bin/conda', 'NVM_CD_FLAGS': '', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'QTWEBENGINE_DICTIONARIES_PATH': '/usr/share/hunspell-bdic/', 'PYTHONPATH': '/opt/ros/rolling/opt/gz_math_vendor/lib/python:/opt/ros/rolling/lib/python3.12/site-packages', 'CONDA_PREFIX': '', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/rolling/opt/gz_math_vendor:/opt/ros/rolling/opt/gz_utils_vendor:/opt/ros/rolling/opt/gz_cmake_vendor:/opt/ros/rolling'}), 'shell': False}
+[6.442839] (create_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.443030] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/ament_index/resource_index/rosidl_interfaces/create_msgs\n'}
+[6.443180] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Bumper.json\n'}
+[6.443298] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/ChargingState.json\n'}
+[6.443386] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/DefineSong.json\n'}
+[6.443454] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Mode.json\n'}
+[6.443526] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/PlaySong.json\n'}
+[6.443591] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/MotorSetpoint.json\n'}
+[6.443698] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Cliff.json\n'}
+[6.443812] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.443931] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.444008] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/play_song.h\n'}
+[6.444081] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.444152] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__type_support.h\n'}
+[6.444219] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__type_support.h\n'}
+[6.444278] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__description.c\n'}
+[6.444360] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__description.c\n'}
+[6.444429] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__functions.c\n'}
+[6.444489] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__type_support.c\n'}
+[6.444558] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__type_support.h\n'}
+[6.444628] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__type_support.c\n'}
+[6.444698] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__functions.h\n'}
+[6.444797] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__functions.c\n'}
+[6.444914] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__functions.h\n'}
+[6.444980] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__struct.h\n'}
+[6.445061] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__struct.h\n'}
+[6.445121] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__functions.h\n'}
+[6.445199] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__type_support.c\n'}
+[6.445268] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__functions.h\n'}
+[6.445341] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__functions.c\n'}
+[6.445415] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__description.c\n'}
+[6.445490] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__type_support.c\n'}
+[6.445564] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__type_support.h\n'}
+[6.445636] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__functions.c\n'}
+[6.445715] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__functions.c\n'}
+[6.445790] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__struct.h\n'}
+[6.445904] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__functions.h\n'}
+[6.445981] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__functions.c\n'}
+[6.446050] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__type_support.c\n'}
+[6.446117] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__struct.h\n'}
+[6.446188] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__functions.h\n'}
+[6.446282] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__functions.h\n'}
+[6.446363] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__struct.h\n'}
+[6.446442] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__type_support.h\n'}
+[6.446516] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__type_support.c\n'}
+[6.446590] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__type_support.h\n'}
+[6.446666] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__functions.c\n'}
+[6.446741] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__description.c\n'}
+[6.446815] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__type_support.c\n'}
+[6.446901] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__description.c\n'}
+[6.446980] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__struct.h\n'}
+[6.447053] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__description.c\n'}
+[6.447124] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__struct.h\n'}
+[6.447206] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__description.c\n'}
+[6.447293] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__type_support.h\n'}
+[6.447373] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/cliff.h\n'}
+[6.447453] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/charging_state.h\n'}
+[6.447528] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/mode.h\n'}
+[6.447604] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/define_song.h\n'}
+[6.447681] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[6.447755] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/motor_setpoint.h\n'}
+[6.447838] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/bumper.h\n'}
+[6.447980] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/library_path.sh\n'}
+[6.448079] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/library_path.dsv\n'}
+[6.448248] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_generator_c.so\n'}
+[6.448571] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_generator_c.so" to ""\n'}
+[6.448643] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.448713] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.448772] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.448843] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__rosidl_typesupport_fastrtps_c.h\n'}
+[6.448936] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449048] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449108] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449178] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449250] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449312] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__rosidl_typesupport_fastrtps_c.h\n'}
+[6.449387] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[6.449459] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[6.449695] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[6.449775] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.449833] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.449939] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.450049] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__rosidl_typesupport_introspection_c.h\n'}
+[6.450124] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__type_support.c\n'}
+[6.450196] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__type_support.c\n'}
+[6.450256] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__rosidl_typesupport_introspection_c.h\n'}
+[6.450335] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__type_support.c\n'}
+[6.450393] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__type_support.c\n'}
+[6.450475] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__rosidl_typesupport_introspection_c.h\n'}
+[6.450534] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__type_support.c\n'}
+[6.450615] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__rosidl_typesupport_introspection_c.h\n'}
+[6.450674] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__rosidl_typesupport_introspection_c.h\n'}
+[6.450744] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__type_support.c\n'}
+[6.450813] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__type_support.c\n'}
+[6.450877] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__rosidl_typesupport_introspection_c.h\n'}
+[6.450997] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__rosidl_typesupport_introspection_c.h\n'}
+[6.451107] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[6.451186] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_introspection_c.so\n'}
+[6.451437] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[6.451508] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_c.so\n'}
+[6.451739] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_c.so" to ""\n'}
+[6.451812] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.451883] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.452001] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/define_song.hpp\n'}
+[6.452117] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/cliff.hpp\n'}
+[6.452219] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.452280] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__traits.hpp\n'}
+[6.452341] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__struct.hpp\n'}
+[6.452409] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__traits.hpp\n'}
+[6.452467] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__struct.hpp\n'}
+[6.452527] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__traits.hpp\n'}
+[6.452599] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__type_support.hpp\n'}
+[6.452670] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__struct.hpp\n'}
+[6.452737] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__builder.hpp\n'}
+[6.452809] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__type_support.hpp\n'}
+[6.452869] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__traits.hpp\n'}
+[6.452947] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__type_support.hpp\n'}
+[6.453015] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__struct.hpp\n'}
+[6.453131] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__traits.hpp\n'}
+[6.453215] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__builder.hpp\n'}
+[6.453292] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__struct.hpp\n'}
+[6.453364] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__struct.hpp\n'}
+[6.453435] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__struct.hpp\n'}
+[6.453529] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__type_support.hpp\n'}
+[6.453611] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__type_support.hpp\n'}
+[6.453694] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__builder.hpp\n'}
+[6.453777] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__builder.hpp\n'}
+[6.453860] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__traits.hpp\n'}
+[6.453953] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__builder.hpp\n'}
+[6.454030] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__builder.hpp\n'}
+[6.454113] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__type_support.hpp\n'}
+[6.454195] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__builder.hpp\n'}
+[6.454283] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__traits.hpp\n'}
+[6.454362] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__type_support.hpp\n'}
+[6.454445] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/charging_state.hpp\n'}
+[6.454520] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/bumper.hpp\n'}
+[6.454595] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/motor_setpoint.hpp\n'}
+[6.454675] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[6.454750] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/mode.hpp\n'}
+[6.454825] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/play_song.hpp\n'}
+[6.454933] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.455006] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.455081] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.455142] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455217] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455289] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/dds_fastrtps\n'}
+[6.455380] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455448] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455507] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455579] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455649] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[6.455719] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[6.455805] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[6.456183] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[6.456275] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs\n'}
+[6.456346] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg\n'}
+[6.456428] (create_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail\n'}
+[6.456501] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.456569] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/motor_setpoint__type_support.cpp\n'}
+[6.456627] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__type_support.cpp\n'}
+[6.456698] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__type_support.cpp\n'}
+[6.456767] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.456836] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/define_song__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.456903] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__type_support.cpp\n'}
+[6.456981] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/cliff__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.457050] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__type_support.cpp\n'}
+[6.457121] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/charging_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.457193] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__type_support.cpp\n'}
+[6.457265] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/play_song__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.457342] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/bumper__rosidl_typesupport_introspection_cpp.hpp\n'}
+[6.457456] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/include/create_msgs/create_msgs/msg/detail/mode__type_support.cpp\n'}
+[6.457587] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[6.457988] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[6.458060] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_cpp.so\n'}
+[6.458319] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[6.458390] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/pythonpath.sh\n'}
+[6.458464] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/pythonpath.dsv\n'}
+[6.458538] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs-3.1.0-py3.12.egg-info\n'}
+[6.458627] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs-3.1.0-py3.12.egg-info/dependency_links.txt\n'}
+[6.458702] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs-3.1.0-py3.12.egg-info/top_level.txt\n'}
+[6.458776] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs-3.1.0-py3.12.egg-info/PKG-INFO\n'}
+[6.458849] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs-3.1.0-py3.12.egg-info/SOURCES.txt\n'}
+[6.458998] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs\n'}
+[6.459070] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/_create_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[6.459143] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/__init__.py\n'}
+[6.459220] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_c.so\n'}
+[6.459292] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/_create_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[6.459369] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[6.459484] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg\n'}
+[6.459555] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_motor_setpoint_s.c\n'}
+[6.459637] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/__init__.py\n'}
+[6.459713] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_motor_setpoint.py\n'}
+[6.459785] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_cliff_s.c\n'}
+[6.459853] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_mode.py\n'}
+[6.459933] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_cliff.py\n'}
+[6.460005] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_define_song_s.c\n'}
+[6.460079] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_charging_state.py\n'}
+[6.460154] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_bumper_s.c\n'}
+[6.460235] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_define_song.py\n'}
+[6.460319] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_charging_state_s.c\n'}
+[6.460394] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_play_song_s.c\n'}
+[6.460470] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_play_song.py\n'}
+[6.460548] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_mode_s.c\n'}
+[6.460623] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_bumper.py\n'}
+[6.460712] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[6.460820] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/_create_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[6.460927] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/py.typed\n'}
+[6.498329] (create_msgs) StdoutLine: {'line': b"Listing '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs'...\n"}
+[6.498456] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/__init__.py'...\n"}
+[6.498514] (create_msgs) StdoutLine: {'line': b"Listing '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg'...\n"}
+[6.498568] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/__init__.py'...\n"}
+[6.498621] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_bumper.py'...\n"}
+[6.498678] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_charging_state.py'...\n"}
+[6.498730] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_cliff.py'...\n"}
+[6.498781] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_define_song.py'...\n"}
+[6.498832] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_mode.py'...\n"}
+[6.498883] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_motor_setpoint.py'...\n"}
+[6.498950] (create_msgs) StdoutLine: {'line': b"Compiling '/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/msg/_play_song.py'...\n"}
+[6.502930] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_fastrtps_c.so\n'}
+[6.503232] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[6.503410] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_introspection_c.so\n'}
+[6.503672] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[6.503805] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_c.so\n'}
+[6.504100] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/python3.12/site-packages/create_msgs/create_msgs_s__rosidl_typesupport_c.so" to ""\n'}
+[6.504208] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_generator_py.so\n'}
+[6.504423] (create_msgs) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/lib/libcreate_msgs__rosidl_generator_py.so" to ""\n'}
+[6.504546] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/ament_index/resource_index/rust_packages/create_msgs\n'}
+[6.504725] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust\n'}
+[6.504812] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust/build.rs\n'}
+[6.504886] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust/src\n'}
+[6.504968] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust/src/lib.rs\n'}
+[6.505027] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust/src/msg.rs\n'}
+[6.505085] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/rust/Cargo.toml\n'}
+[6.505164] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Bumper.idl\n'}
+[6.505237] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/ChargingState.idl\n'}
+[6.505311] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/DefineSong.idl\n'}
+[6.505383] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Mode.idl\n'}
+[6.505456] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/PlaySong.idl\n'}
+[6.505524] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/MotorSetpoint.idl\n'}
+[6.505621] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Cliff.idl\n'}
+[6.505716] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Bumper.msg\n'}
+[6.505827] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/ChargingState.msg\n'}
+[6.505982] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/DefineSong.msg\n'}
+[6.506161] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Mode.msg\n'}
+[6.506540] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/PlaySong.msg\n'}
+[6.506690] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/MotorSetpoint.msg\n'}
+[6.506798] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/msg/Cliff.msg\n'}
+[6.506874] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/ament_index/resource_index/package_run_dependencies/create_msgs\n'}
+[6.507059] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/ament_index/resource_index/parent_prefix_path/create_msgs\n'}
+[6.507206] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/ament_prefix_path.sh\n'}
+[6.507293] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/ament_prefix_path.dsv\n'}
+[6.507379] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/path.sh\n'}
+[6.507485] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/environment/path.dsv\n'}
+[6.507551] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/local_setup.bash\n'}
+[6.507625] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/local_setup.sh\n'}
+[6.507702] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/local_setup.zsh\n'}
+[6.507777] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/local_setup.dsv\n'}
+[6.507861] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/package.dsv\n'}
+[6.507994] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/ament_index/resource_index/packages/create_msgs\n'}
+[6.508152] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_generator_cExport.cmake\n'}
+[6.508262] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[6.508379] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[6.508462] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[6.508577] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[6.508716] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[6.508819] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_cExport.cmake\n'}
+[6.508913] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[6.509057] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_generator_cppExport.cmake\n'}
+[6.509142] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[6.509249] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[6.509363] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[6.509476] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[6.509586] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[6.509695] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[6.509809] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_generator_pyExport.cmake\n'}
+[6.509920] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/export_create_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[6.510022] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[6.510137] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[6.510245] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[6.510348] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[6.510453] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[6.510559] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[6.510663] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[6.510768] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgsConfig.cmake\n'}
+[6.510848] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/cmake/create_msgsConfig-version.cmake\n'}
+[6.510950] (create_msgs) StdoutLine: {'line': b'-- Installing: /home/bartek/VSCodeWs/Roomba696ROS2Brain/install/create_msgs/share/create_msgs/package.xml\n'}
+[6.512647] (create_msgs) CommandEnded: {'returncode': 0}
+[6.514092] (-) TimerEvent: {}
+[6.528467] (create_msgs) JobEnded: {'identifier': 'create_msgs', 'rc': 0}
+[6.528772] (-) EventReactorShutdown: {}

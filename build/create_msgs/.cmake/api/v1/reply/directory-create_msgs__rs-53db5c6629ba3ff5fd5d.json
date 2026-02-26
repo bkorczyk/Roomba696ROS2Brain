@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "create_msgs__rs",
+		"source" : "/home/bartek/VSCodeWs/Roomba696ROS2Brain/build/create_msgs/create_msgs__rs"
+	}
+}

@@ -1,0 +1,88 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer server(8888);
+WiFiClient client;
+
+#define BRC_PIN 4
+
+// Zmienne globalne dla naszego inteligentnego bufora
+uint8_t rxBuffer[2048];
+size_t rxIndex = 0;
+unsigned long lastByteTime = 0;
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(500);
+
+  Serial.begin(115200);
+  Serial2.setRxBufferSize(2048);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+  
+  server.begin();
+}
+
+void loop() {
+  WiFiClient newClient = server.available();
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true); 
+    while(Serial2.available()) Serial2.read();
+    rxIndex = 0; // Resetujemy bufor przy nowym połączeniu
+  }
+
+  // 1. Przekaz: ROS 2 -> ROOMBA (tu przepuszczamy jak leci)
+  if (client && client.connected() && client.available()) {
+    size_t len = client.available();
+    uint8_t buf[len];
+    client.read(buf, len);
+    Serial2.write(buf, len);
+  }
+
+  // 2. Przekaz: ROOMBA -> ROS 2 (Z INTELIGENTNYM PARSOWANIEM)
+  while (Serial2.available() > 0) {
+    uint8_t b = Serial2.read();
+    rxBuffer[rxIndex++] = b;
+    lastByteTime = millis();
+    
+    // Analiza struktury ramki Stream (zaczyna się od 19)
+    if (rxIndex >= 2 && rxBuffer[0] == 19) {
+      size_t expectedLen = rxBuffer[1] + 3; // Nagłówek(1) + N(1) + Dane(N) + Checksum(1)
+      
+      if (rxIndex == expectedLen) {
+        // Skompletowaliśmy idealną ramkę! Strzelamy nią do ROS 2
+        if (client && client.connected()) {
+          client.write(rxBuffer, rxIndex);
+        }
+        rxIndex = 0; // Opróżniamy bufor i czekamy na kolejną
+      }
+    } 
+    // Zabezpieczenie: jeśli to nie jest ramka Stream (np. odpowiedź na inną komendę)
+    else if (rxBuffer[0] != 19) {
+      // Wyrzucamy natychmiast, żeby nie blokować innych typów komunikacji
+      if (client && client.connected()) {
+        client.write(rxBuffer, rxIndex);
+      }
+      rxIndex = 0;
+    }
+    
+    // Zabezpieczenie przed przepełnieniem pamięci RAM w ESP32
+    if (rxIndex >= sizeof(rxBuffer)) rxIndex = 0;
+  }
+
+  // Zabezpieczenie czasowe (Timeout):
+  // Jeżeli Roomba urwała ramkę (np. kabel nie łączy) i przez 50ms nic nie wysyła, 
+  // wyrzucamy śmieci, żeby ESP32 nie czekało w nieskończoność na brakujące bajty.
+  if (rxIndex > 0 && (millis() - lastByteTime > 50)) {
+    rxIndex = 0;
+  }
+}

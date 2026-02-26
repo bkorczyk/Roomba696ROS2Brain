@@ -1,0 +1,128 @@
+#include <Arduino.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include "secrets.h"
+
+const char* ssid = SECRET_SSID;
+const char* password = SECRET_PASS;
+
+WiFiServer server(8888);
+WiFiServer logServer(8889);
+WiFiClient client;
+WiFiClient logClient;
+
+#define BRC_PIN 4
+#define LED_PIN 2
+
+void logRaw(String msg) {
+  if (logClient && logClient.connected()) logClient.println(msg);
+  Serial.println(msg);
+}
+
+void resetRoomba() {
+  //logMsg(">>> HARD RESET ROOMBA (BRC)...");
+  digitalWrite(BRC_PIN, LOW);
+  delay(1000);
+  digitalWrite(BRC_PIN, HIGH);
+  delay(1500);   // daj jej czas na boot
+}
+
+void killStream() {
+ // logMsg(">>> DISABLING POSSIBLE STREAM MODE...");
+
+  for (int i = 0; i < 3; i++) {
+    Serial2.write(0x80);  // START
+    delay(50);
+    Serial2.write(0x96);  // STREAM (150)
+    Serial2.write(0x00);  // disable
+    delay(50);
+    Serial2.write(0xAD);  // STOP
+    delay(200);
+  }
+
+  //logMsg(">>> STREAM OFF DONE.");
+}
+
+void setup() {
+  pinMode(BRC_PIN, OUTPUT);
+  digitalWrite(BRC_PIN, HIGH);
+  Serial.begin(115200);
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+
+   // RESET tylko raz przy starcie ESP32
+  //resetRoomba();
+  killStream();
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+  server.begin();
+  logServer.begin();
+  MDNS.begin("roomba");
+  logRaw(">>> DEBUGGER V12 READY. Polacz sie nc ... 8889");
+}
+
+void loop() {
+  WiFiClient newClient = server.available();
+  /*if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    
+    logRaw("\n>>> [SYSTEM] Nowe polaczenie z ROS2. Resetuje BRC...");
+    digitalWrite(BRC_PIN, LOW); delay(500); digitalWrite(BRC_PIN, HIGH);
+    delay(100);
+    
+    logRaw(">>> [SYSTEM] Wysylam START (128, 131)...");
+    Serial2.write(128); delay(50);
+    Serial2.write(131); delay(100);
+  } */
+ 
+  if (newClient) {
+    if (client) client.stop();
+    client = newClient;
+    client.setNoDelay(true);
+    logRaw("\n>>> [SYSTEM] Nowe polaczenie z ROS2 (Most aktywny)");
+  }
+
+  if (!logClient || !logClient.connected()) logClient = logServer.available();
+
+  /*
+  // Przekazuj z ROS2 do Roomby
+  if (client && client.connected() && client.available()) {
+    while (client.available()) Serial2.write(client.read());
+  }
+  */
+
+  // Przekazuj z ROS2 do Roomby
+  if (client && client.connected() && client.available()) {
+    size_t len = client.available();
+    uint8_t sbuf[len];
+    client.read(sbuf, len);
+    Serial2.write(sbuf, len);
+  }
+
+  // CZYTAJ Z ROOMBY I TŁUMACZ
+  if (Serial2.available()) {
+    String textLine = "";
+    while (Serial2.available()) {
+      uint8_t b = Serial2.read();
+      
+      // Wyslij surowe dane do ROS2
+      if (client && client.connected()) client.write(b);
+      
+      // Buduj czytelny tekst dla nas
+      if (b >= 32 && b <= 126) {
+        textLine += (char)b; // Jesli to znak ASCII, dodaj litere
+      } else if (b == 10 || b == 13) {
+        if (textLine.length() > 0) {
+          logRaw("ROOMBA TEXT: " + textLine);
+          textLine = "";
+        }
+      } else {
+        // Jesli to bajt binarny (nie tekst), pokaz HEX
+        textLine += "[0x" + String(b, HEX) + "]";
+      }
+    }
+    if (textLine.length() > 0) logRaw("ROOMBA DATA: " + textLine);
+  }
+}
