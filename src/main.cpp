@@ -8,13 +8,15 @@ unsigned long lastForceMode = 0;
 bool bumperPressed = false;
 
 #define BRC_PIN 4
+#define RX_PIN 18
+#define TX_PIN 17
 
 void setup() {
   pinMode(BRC_PIN, OUTPUT);
   digitalWrite(BRC_PIN, HIGH);
-  Serial2.begin(115200, SERIAL_8N1, 16, 17);
+  Serial2.begin(115200, SERIAL_8N1, RX_PIN, TX_PIN);
   WiFi.begin(SECRET_SSID, SECRET_PASS);
-  while (WiFi.status() != WL_CONNECTED) delay(500);
+  while (WiFi.status() != WL_CONNECTED) delay(500);  
   server.begin();
 }
 
@@ -44,11 +46,11 @@ void loop() {
       }
     }
     
-    // 2. WYMUSZANIE TRYBU
+    /* 2. WYMUSZANIE TRYBU
     if (millis() - lastForceMode > 2000) {
       Serial2.write(131); 
       lastForceMode = millis();
-    }
+    }*/
 
     // 3. Roomba -> ROS 2 (ANALIZA SENSORÓW + INIEKCJA)
     if (Serial2.available()) {
